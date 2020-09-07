@@ -1,0 +1,19 @@
+
+
+/* this is universal selector to remove all pre defined browser css */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  /* as user css by browser provide default value for css to 16px but i want it to have 10px as base case so i have taken 62.5  */
+  font-size: 62.5%;
+}
+
+/* seting project wise default font and color */
+body {
+  box-sizing: border-box;
+}

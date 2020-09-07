@@ -1,0 +1,40 @@
+/* Animations */
+
+@keyframes moveInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-10rem);
+    }
+    80% {
+      transform: translateX(2rem);
+    }
+    100% {
+      transform: translateX(0rem);
+      opacity: 1;
+    }
+  }
+  @keyframes moveInFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(10rem);
+    }
+    80% {
+      transform: translateX(-2rem);
+    }
+    100% {
+      transform: translateX(0rem);
+      opacity: 1;
+    }
+  }
+  @keyframes moveInFromBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+  
+    100% {
+      transform: translateX(0rem);
+      opacity: 1;
+    }
+  }
+  

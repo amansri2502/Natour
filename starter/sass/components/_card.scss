@@ -1,13 +1,14 @@
 .card{
     // perspective should always be on parent
     perspective: 150rem;
+    // for mozilla
     -moz-perspective: 150rem;
     position: relative;
-    height:50rem;
+    height:52rem;
 
    &__side{
-    height:50rem;
-    background-color: sandybrown;
+    height:52rem;
+
     transition: all 0.8s ease;
     color:white;
     font-size: 2rem;
@@ -18,10 +19,19 @@
     //to make the front side visible and hide the card which is back facing;
     backface-visibility: hidden;
     border-radius: 3px;
+    //when we apply image the image hides the corner radius so we have to use this
+    overflow:hidden ;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
     &--front{
         &-1{
+            background-color:$color-white;
+
+        }
+        &-2{
+            background-color:$color-white;
+        }
+        &-3{
             background-color:$color-white;
         }
     }
@@ -30,6 +40,12 @@
         transform: rotateY(180deg);
         &-1{
             background-image:linear-gradient(to right bottom, $color-secondary-light , $color-secondary-dark);
+        }
+        &-2{
+            background-image:linear-gradient(to right bottom, $color-primary-light , $color-primary-dark);
+        }
+        &-3{
+            background-image:linear-gradient(to right bottom, $color-tertiary-light , $color-tertiary-dark);
         }
     }
 
@@ -40,5 +56,70 @@
     }
     &:hover &__side--back{
         transform: rotateY(0);
+    }
+
+    &__picture{
+        height: 23rem;
+        background-size: cover;
+        background-blend-mode: screen;
+
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1{
+            // only move up one level in url because remember the code will be compiled and written in styles.css
+            background-image:linear-gradient(to right bottom, $color-secondary-light , $color-secondary-dark),url(../img/nat-5.jpg ) ;
+        }
+        &--2{
+        
+            background-image:url(../img/nat-5.jpg ) ;
+        }
+        &--3{
+        
+            background-image:url(../img/nat-5.jpg ) ;
+        }
+        
+    }
+
+    &__heading{
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $color-white;
+        font-size: 2.8rem;
+        text-align: right;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%; 
+        
+
+
+    }
+
+    &__heading-span{
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        &--1{
+           background-image: linear-gradient(to right bottom, rgba($color-secondary-light,0.85),rgba($color-secondary-dark,0.85)); 
+        }
+    }
+    &__detail{
+        padding: 3rem;
+        ul{
+            margin:0 auto;
+            color:$color-gray;
+            list-style: none;
+            width: 80%;
+            li{
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem ;
+                &:not(:last-child){
+                    border-bottom: 1px solid $color-gray-light-1;
+                }
+            }
+            
+        }
     }
 }

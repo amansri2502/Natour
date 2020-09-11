@@ -1,4 +1,7 @@
-.btn {
+// & is to select btn class without link and visited such as anchor element
+
+.btn{
+&,
     &:link,
     &:visited {
       text-transform: uppercase;
@@ -10,6 +13,9 @@
       transition: all 0.2s;
       position: relative;
       font-size: 1.6rem;
+      cursor: pointer;
+      border:none;
+      
     }
     &--animated {
       animation-name: moveInFromBottom;
@@ -29,7 +35,8 @@
       }
     }
     /* when clicked */
-    &:active {
+    &:active,&:focus {
+      outline: none;
       transform: translateY(-0.1rem);
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     }

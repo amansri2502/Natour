@@ -1,0 +1,90 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  // on input element we can use invalid and valid sudo class to verify form
+  &__input {
+    border-radius: 2px;
+    padding: 1.5rem 2rem;
+    color: inherit;
+    font-size: 1.5rem;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    font-family: inherit;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    // animates the green line
+    transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+    }
+    // if the input element is focused and invalid it is used
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+    // sudo element
+    &::-webkit-input-placeholder {
+      color: #999;
+    }
+  }
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0.7rem;
+    margin-left: 2rem;
+    display: block;
+    transition: all 0.5s;
+  }
+  //    adjecent sibling selector + sibling selector ~
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+  }
+  &__radio-label {
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4rem;
+  }
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: -.4rem;
+    left: -0.1rem;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      opacity: 0;
+      background-color: $color-primary;
+      width: 1.3rem;
+      height: 1.3rem;
+      transition: opacity .2s;
+    }
+  }
+  &__radio-input:checked + &__radio-label &__radio-button::after{
+      opacity:1;
+  }
+  &__radio-input{
+      display: none;
+  }
+}
